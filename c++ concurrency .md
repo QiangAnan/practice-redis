@@ -24,11 +24,12 @@ c++11  thread library
     一个线程只能join一次，join后joinable()返回false
   - detach线程
     线程detach后可能访问局部临时变量，这个时候要注意; 
-    如果使用一个可调用的对象作为线程函数，这个对象就会复制到线程中，而后原始对象就会立即销毁。但对于对象中包含的指针和引用还需谨慎
-  
+    如果使用一个可调用的对象作为线程函数，这个对象就会复制到线程中，而后原始对象就会立即销毁。但对于对象中包含的指针和引用还需谨慎。
+    detach后，joinable()返回false
+ 
   ```cpp
   std::thread my_thread(background_task()); // background_task为函数
-  将函数对象传入thread构造函数时，有可能语法解析成 定义一个函数my_thread,参数为一个函数指针（函数指针指向没有参数并返回background_task对象的函数），使用下面方式初始化可以避免
+  # 将函数对象传入thread构造函数时，有可能语法解析成 定义一个函数my_thread,参数为一个函数指针（函数指针指向没有参数并返回background_task对象的函数），使用下面方式初始化可以避免
   std::thread my_thread{background_task()};
   ```
   `确保thread对象被正确join，防止因异常的其他情况而未正常调用线程的join函数`
@@ -51,4 +52,6 @@ public:
   thread_guard& operator=(thread_guard const&)=delete;
 };
   ```
+- 线程参数操作
+  
     
