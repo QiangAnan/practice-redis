@@ -83,14 +83,13 @@ redis
 ### 第一章：初始redis
 - 基本知识
     - redis Remote Dictionary Server 远程内存数据库，非关系数据库，使用key-value方式存储在内存中，可以异步持久化到磁盘。
-    - 支持key对应5种数据类型：string、list、set、sorted sort、hash; 五种数据类型对应的操作命令
-```cpp    	
-	- string：get/set/del  eg: `set key stringValue`
-	- list: 链表 lpush/lrange/lindex/lpop  eg: `rpush list-key item`、`lrange list-key 0 -1 `
-	- set：sadd/smembers/sismember/srem   eg: `sadd set-key value1`
-	- hash: hset/hget/hdel/hgetall   eg: `hset hask-key  sub-key1 sub-value1`、 `hget hash-key sub-key1`
-	- sorted set: zadd/zrem/zrange/zrangebyscore  eg: `zadd zset-key scoreValue value1`、`zrange zset-key startIndex endIndex withscores`、`zrangebyscore zset-key scoreStart scoreEnd withscores`
-```
+    - 支持key对应5种数据类型：string、list、set、sorted sort、hash; 五种数据类型对应的操作命令    	
+    - string：get/set/del  eg: `set key stringValue`
+    - list: 链表 lpush/lrange/lindex/lpop  eg: `rpush list-key item`、`lrange list-key 0 -1 `
+    - set：sadd/smembers/sismember/srem   eg: `sadd set-key value1`
+    - hash: hset/hget/hdel/hgetall   eg: `hset hask-key  sub-key1 sub-value1`、 `hget hash-key sub-key1`
+    - sorted set: zadd/zrem/zrange/zrangebyscore  eg: `zadd zset-key scoreValue value1`、`zrange zset-key startIndex endIndex withscores`、`zrangebyscore zset-key scoreStart scoreEnd withscores`
+
 - 一个例子，文章发布分类和投票
     例子用的python，直接开搞，不太适合新手
    
